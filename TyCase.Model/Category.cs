@@ -9,7 +9,7 @@ namespace TyCase.Model
     {
         private string _title;
         private ICategory _parentCategory;
-
+        
         public Category(string title)
         {
             _title = title;
@@ -35,5 +35,7 @@ namespace TyCase.Model
                 return _title;
             }
         }
+
+        public double DiscountAmount { get; set; }
     }
 }

@@ -8,5 +8,6 @@ namespace TyCase.Core
     {
         public string Title { get; }
         public ICategory ParentCategory { get; }
+        public double DiscountAmount { get; set; }
     }
 }

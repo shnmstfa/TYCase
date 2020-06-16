@@ -5,13 +5,11 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TyCase", "TyCase\TyCase.csproj", "{F5C6B30F-AF64-487F-BC97-8876790391D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TyCase.Core", "TyCase.Core\TyCase.Core.csproj", "{D75D268E-90DA-48CA-BB98-0E94A733158E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TyCase.Core", "TyCase.Core\TyCase.Core.csproj", "{D75D268E-90DA-48CA-BB98-0E94A733158E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TyCase.Implementation", "TyCase.Implementation\TyCase.Implementation.csproj", "{1D733E53-A1DE-4259-85C3-9B85BFA32DCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TyCase.Service", "TyCase.Service\TyCase.Service.csproj", "{10751D9C-C705-41A4-97AD-570FD3BFD604}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TyCase.Model", "TyCase.Model\TyCase.Model.csproj", "{DE5DF30E-CBCC-4171-BA65-C570A7C2C85D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TyCase.Model", "TyCase.Model\TyCase.Model.csproj", "{DE5DF30E-CBCC-4171-BA65-C570A7C2C85D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{1D733E53-A1DE-4259-85C3-9B85BFA32DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D733E53-A1DE-4259-85C3-9B85BFA32DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D733E53-A1DE-4259-85C3-9B85BFA32DCD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10751D9C-C705-41A4-97AD-570FD3BFD604}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10751D9C-C705-41A4-97AD-570FD3BFD604}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10751D9C-C705-41A4-97AD-570FD3BFD604}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10751D9C-C705-41A4-97AD-570FD3BFD604}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DE5DF30E-CBCC-4171-BA65-C570A7C2C85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DE5DF30E-CBCC-4171-BA65-C570A7C2C85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE5DF30E-CBCC-4171-BA65-C570A7C2C85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
