@@ -5,14 +5,25 @@ using TyCase.Core;
 
 namespace TyCase.Implementation
 {
+    /// <summary>
+    /// Configuration of shopping cart delivery cost
+    /// </summary>
     public class CartDeliveryConfig : IDeliveryCostConfig
     {
         public double _costPerDelivery;
         public double _costPerProduct;
         public double _fixedCost;
-
+        /// <summary>
+        /// Number of deliveries constant
+        /// </summary>
         public double CostPerDelivery { get; }
+        /// <summary>
+        /// Number of products constant
+        /// </summary>
         public double CostPerProduct { get; }
+        /// <summary>
+        /// Cost fix constant
+        /// </summary>
         public double FixedCost { get; }
 
         public CartDeliveryConfig(double costPerDelivery, double costPerProduct, double fixedCost)

@@ -6,8 +6,13 @@ namespace TyCase.Core
 {
     public interface ICategory
     {
+        /// <summary>
+        /// Title of category
+        /// </summary>
         public string Title { get; }
+        /// <summary>
+        /// Parent category
+        /// </summary>
         public ICategory ParentCategory { get; }
-        public double DiscountAmount { get; set; }
     }
 }
