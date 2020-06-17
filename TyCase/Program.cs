@@ -9,7 +9,10 @@ namespace TyCase
     {
         static void Main(string[] args)
         {
+            AppDomain currentDomain = AppDomain.CurrentDomain;
 
+            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(ExceptionHandler.GlobalHandler);
+            var tt = new Category(null);
             var fruits = new Category("fruits");
             var vegetables = new Category("vegetables");
 

@@ -16,6 +16,8 @@ namespace TyCase.Model
         public Category(string title)
         {
             _title = title;
+            if (!IsValid())
+                throw new Exception("Category not valid");
         }
         /// <summary>
         /// Category of products
@@ -26,6 +28,8 @@ namespace TyCase.Model
         {
             _title = title;
             _parentCategory = parentCategory;
+            if (!_parentCategory.IsValid() || !IsValid())
+                throw new Exception("Category not valid");
         }
         /// <summary>
         /// Parent of category
@@ -46,6 +50,10 @@ namespace TyCase.Model
             {
                 return _title;
             }
+        }
+        public bool IsValid()
+        {
+            return !string.IsNullOrEmpty(_title);
         }
     }
 }

@@ -19,6 +19,8 @@ namespace TyCase.Model
             _title = title;
             _amount = amount;
             _category = category;
+            if (!IsValid())
+                throw new Exception("Product not valid");
         }
         /// <summary>
         /// Category of product
@@ -49,6 +51,10 @@ namespace TyCase.Model
             {
                 return _amount;
             }
+        }
+        public bool IsValid()
+        {
+            return !string.IsNullOrEmpty(_title) && _amount > 0 && _category != null && _category.IsValid();
         }
     }
 }

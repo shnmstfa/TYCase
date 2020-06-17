@@ -76,32 +76,48 @@ namespace TyCase.Implementation
             double count = 0;
             double totalAmount = 0;
             double discount = 0;
-            foreach (var item in cartItems)
+            if (cartItems != null)
             {
-                //check if product category is sub category of discount category
-                if (item.Product.Category.CheckCategoryTitleWithParent(_category))
-                {
-                    count += item.Quantity;
-                    totalAmount += item.Product.Amount * item.Quantity;
-                }
-            }
 
-            if (count >= _ruleFactor)
-            {
-                switch (_discountType)
+                foreach (var item in cartItems)
                 {
-                    case DiscountTypeEnum.Rate:
-                        discount = totalAmount * (_discountValue / 100);
-                        break;
-                    case DiscountTypeEnum.Amount:
-                        discount = _discountValue;
-                        break;
-                    default:
-                        break;
+                    //check if product category is sub category of discount category
+                    if (item.Product.Category.CheckCategoryTitleWithParent(_category))
+                    {
+                        count += item.Quantity;
+                        totalAmount += item.Product.Amount * item.Quantity;
+                    }
                 }
+
+                if (count >= _ruleFactor)
+                {
+                    switch (_discountType)
+                    {
+                        case DiscountTypeEnum.Rate:
+                            discount = totalAmount * (_discountValue / 100);
+                            break;
+                        case DiscountTypeEnum.Amount:
+                            discount = _discountValue;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                _calculatedDiscountAmount = discount;
             }
-            _calculatedDiscountAmount = discount;
+            else
+            {
+                throw new Exception("Cart items can not be null");
+            }
             return discount;
+        }
+        /// <summary>
+        /// check if item is valid
+        /// </summary>
+        /// <returns></returns>
+        public bool IsValid()
+        {
+            return _category != null && _category.IsValid() && _discountValue > 0 && _ruleFactor > 0;
         }
     }
 }

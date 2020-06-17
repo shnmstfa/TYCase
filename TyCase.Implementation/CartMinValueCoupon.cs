@@ -25,6 +25,8 @@ namespace TyCase.Implementation
             _discountValue = discountValue;
             _ruleFactor = discountFactor;
             _discountType = discountType;
+            if (!IsValid())
+                throw new System.Exception("Campaign is not valid");
         }
         /// <summary>
         /// Appyling value of discount
@@ -63,24 +65,40 @@ namespace TyCase.Implementation
         /// <returns></returns>
         public double CalculateDiscount(IEnumerable<ICartItem> cartItems)
         {
+            
             double discount = 0;
-            var totalAmount = cartItems.Sum(x => x.Quantity * x.Product.Amount);
-            if (totalAmount >= _ruleFactor)
+            if (cartItems != null)
             {
-                switch (_discountType)
+                var totalAmount = cartItems.Sum(x => x.Quantity * x.Product.Amount);
+                if (totalAmount >= _ruleFactor)
                 {
-                    case DiscountTypeEnum.Rate:
-                        discount = totalAmount * (_discountValue / 100);
-                        break;
-                    case DiscountTypeEnum.Amount:
-                        discount = _discountValue;
-                        break;
-                    default:
-                        break;
+                    switch (_discountType)
+                    {
+                        case DiscountTypeEnum.Rate:
+                            discount = totalAmount * (_discountValue / 100);
+                            break;
+                        case DiscountTypeEnum.Amount:
+                            discount = _discountValue;
+                            break;
+                        default:
+                            break;
+                    }
                 }
+            }
+            else
+            {
+                throw new System.Exception("cartItems can not be null");
             }
 
             return discount;
+        }
+        /// <summary>
+        /// check if item is valid
+        /// </summary>
+        /// <returns></returns>
+        public bool IsValid()
+        {
+            return _discountValue > 0 && _ruleFactor > 0;
         }
     }
 }

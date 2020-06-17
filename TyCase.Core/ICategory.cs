@@ -14,5 +14,6 @@ namespace TyCase.Core
         /// Parent category
         /// </summary>
         public ICategory ParentCategory { get; }
+        public bool IsValid();
     }
 }

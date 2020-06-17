@@ -9,10 +9,12 @@ namespace TyCase.Core
         /// <summary>
         /// Product of Cart
         /// </summary>
-        public IProduct Product { get; set; }
+        public IProduct Product { get; }
         /// <summary>
         /// Quantity of Cart Item Product
         /// </summary>
-        public  double Quantity{ get; set; }
+        public  double Quantity{ get; }
+        public void IncreaseQuantity(double val);
+        public bool IsValid();
     }
 }

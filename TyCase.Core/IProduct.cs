@@ -21,5 +21,6 @@ namespace TyCase.Core
         /// Amount of product
         /// </summary>
         public double Amount { get; }
+        public bool IsValid();
     }
 }

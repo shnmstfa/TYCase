@@ -106,6 +106,14 @@ namespace TyCase.Implementation
         {
             return GetCampaignDiscount() + GetCouponDiscounts(); 
         }
+        /// <summary>
+        /// Prints the cart total amount and delivery cost
+        /// </summary>
+        /// <returns></returns>
+        public string print()
+        {
+            return string.Format("Total Amount:{0} - Delivery Cost:{1}", GetTotalAmountAfterDiscount().ToString(), GetDeliveryCost().ToString());
+        }
 
     }
 }

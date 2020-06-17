@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using TyCase.Core;
+using TyCase.Model;
 
-namespace TyCase.Model
+namespace TyCase.Implementation
 {
     /// <summary>
     /// Reporting model for print result

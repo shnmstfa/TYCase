@@ -17,19 +17,21 @@ namespace TyCase.Implementation
         public static bool CheckCategoryTitleWithParent(this ICategory category, ICategory check)
         {
             var result = false;
+            if (check != null && check.IsValid())
+            {
 
-            if (category.Title == check.Title)
-            {
-                result = true;
-            }
-            else
-            {
-                if (category.ParentCategory != null)
+                if (category.Title == check.Title)
                 {
-                    result = category.ParentCategory.CheckCategoryTitleWithParent(check);
+                    result = true;
+                }
+                else
+                {
+                    if (category.ParentCategory != null && category.ParentCategory.IsValid())
+                    {
+                        result = category.ParentCategory.CheckCategoryTitleWithParent(check);
+                    }
                 }
             }
-
             return result;
         }
     }

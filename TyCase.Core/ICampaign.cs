@@ -24,5 +24,10 @@ namespace TyCase.Core
         /// <param name="cartItems">Items of cart(ex. Products of Carts)</param>
         /// <returns></returns>
         public double CalculateDiscount(IEnumerable<ICartItem> cartItems);
+        /// <summary>
+        /// check if item is valid
+        /// </summary>
+        /// <returns></returns>
+        public bool IsValid();
     }
 }
