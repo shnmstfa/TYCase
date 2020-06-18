@@ -27,6 +27,8 @@ namespace TyCase.Implementation
             _discountValue = discountValue;
             _ruleFactor = discountFactor;
             _discountType = discountType;
+            if (!IsValid())
+                throw new Exception("Campaign is not valid");
         }
         /// <summary>
         /// Appyling value of discount
@@ -97,7 +99,7 @@ namespace TyCase.Implementation
                             discount = totalAmount * (_discountValue / 100);
                             break;
                         case DiscountTypeEnum.Amount:
-                            discount = _discountValue;
+                            discount = totalAmount > _discountValue ?  _discountValue : 0;
                             break;
                         default:
                             break;
@@ -117,7 +119,7 @@ namespace TyCase.Implementation
         /// <returns></returns>
         public bool IsValid()
         {
-            return _category != null && _category.IsValid() && _discountValue > 0 && _ruleFactor > 0;
+            return _category != null && _category.IsValid() && _discountValue > 0 && _ruleFactor > 0 && (_discountType == DiscountTypeEnum.Rate ? _discountValue <= 100 : true);
         }
     }
 }

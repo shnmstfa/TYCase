@@ -20,13 +20,13 @@ namespace TyCase.Implementation
         /// <param name="discountFactor">Comparing value to apply coupon</param>
         /// <param name="discountValue">Appyling value of discount</param>
         /// <param name="discountType">Apply type of discount</param>
-        public CartMinValueCoupon(double discountFactor, double discountValue,  DiscountTypeEnum discountType)
+        public CartMinValueCoupon(double discountValue, double discountFactor, DiscountTypeEnum discountType)
         {
             _discountValue = discountValue;
             _ruleFactor = discountFactor;
             _discountType = discountType;
             if (!IsValid())
-                throw new System.Exception("Campaign is not valid");
+                throw new System.Exception("Coupon is not valid");
         }
         /// <summary>
         /// Appyling value of discount
@@ -78,7 +78,7 @@ namespace TyCase.Implementation
                             discount = totalAmount * (_discountValue / 100);
                             break;
                         case DiscountTypeEnum.Amount:
-                            discount = _discountValue;
+                            discount = totalAmount > _discountValue ? _discountValue : 0;
                             break;
                         default:
                             break;
@@ -98,7 +98,7 @@ namespace TyCase.Implementation
         /// <returns></returns>
         public bool IsValid()
         {
-            return _discountValue > 0 && _ruleFactor > 0;
+            return _discountValue > 0 && _ruleFactor > 0 && (_discountType == DiscountTypeEnum.Rate ? _discountValue <= 100 : true);
         }
     }
 }

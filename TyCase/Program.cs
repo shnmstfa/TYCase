@@ -9,10 +9,6 @@ namespace TyCase
     {
         static void Main(string[] args)
         {
-            AppDomain currentDomain = AppDomain.CurrentDomain;
-
-            currentDomain.UnhandledException += new UnhandledExceptionEventHandler(ExceptionHandler.GlobalHandler);
-            var tt = new Category(null);
             var fruits = new Category("fruits");
             var vegetables = new Category("vegetables");
 
@@ -35,7 +31,7 @@ namespace TyCase
             var campaign2 = new CategoryProductCountCampaign(saltyFruits, 5, 2, DiscountTypeEnum.Rate);
             var campaign3 = new CategoryProductCountCampaign(vegetables, 10, 5, DiscountTypeEnum.Amount);
 
-            var coupon = new CartMinValueCoupon(10, 5, DiscountTypeEnum.Amount);
+            var coupon = new CartMinValueCoupon(10, 100, DiscountTypeEnum.Amount);
 
             cart.ApplyDiscounts(campaign1, campaign2, campaign3);
 
